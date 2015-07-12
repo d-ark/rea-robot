@@ -3,7 +3,7 @@ module Rea
     class Robot
 
       def position
-        cell && direction ? "1,1,#{direction.upcase}" : ""
+        cell && direction ? "#{cell.to_s},#{direction.upcase}" : ""
       end
 
       def place cell, direction

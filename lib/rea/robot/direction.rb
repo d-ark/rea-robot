@@ -25,6 +25,10 @@ module Rea
         cell.neighbour DELTA_X[direction], DELTA_Y[direction]
       end
 
+      def valid?
+        DIRECTIONS.include? direction
+      end
+
       protected
         attr_reader :direction
 

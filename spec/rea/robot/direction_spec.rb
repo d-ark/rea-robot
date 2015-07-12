@@ -34,7 +34,7 @@ describe Rea::Robot::Direction do
     end
 
     it 'returns false if not valid' do
-      expect(Direction.new 'ololo').not_to be_valid
+      expect(described_class.new 'ololo').not_to be_valid
     end
   end
 

@@ -17,6 +17,14 @@ module Rea
         self.class.new prev_direction
       end
 
+      def to_s
+        direction.upcase
+      end
+
+      def move cell
+        cell.neighbour direction
+      end
+
       protected
         attr_reader :direction
 

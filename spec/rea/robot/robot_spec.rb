@@ -38,4 +38,27 @@ describe Rea::Robot::Robot do
     end
   end
 
+  describe '#rotate' do
+    let(:cell) { Rea::Robot::BoardCell.new 1, 1 }
+    let(:robot) do
+      robot = described_class.new(board)
+      robot.place cell, 'north'
+    end
+
+    it 'turns robot right' do
+      expect {robot.rotate 'right'}.to change {robot.position}.from('1,1,NORTH').to('1,1,EAST')
+      expect {robot.rotate 'right'}.to change {robot.position}.from('1,1,EAST').to('1,1,SOUTH')
+      expect {robot.rotate 'right'}.to change {robot.position}.from('1,1,SOUTH').to('1,1,WEST')
+      expect {robot.rotate 'right'}.to change {robot.position}.from('1,1,WEST').to('1,1,NORTH')
+    end
+
+    it 'turns robot left' do
+      expect {robot.rotate 'left'}.to change {robot.position}.from('1,1,NORTH').to('1,1,WEST')
+      expect {robot.rotate 'left'}.to change {robot.position}.from('1,1,WEST').to('1,1,SOUTH')
+      expect {robot.rotate 'left'}.to change {robot.position}.from('1,1,SOUTH').to('1,1,EAST')
+      expect {robot.rotate 'left'}.to change {robot.position}.from('1,1,EAST').to('1,1,NORTH')
+    end
+
+  end
+
 end

@@ -42,6 +42,11 @@ describe Rea::Robot::Robot do
       placed_robot.place cell, 'west'
       expect { placed_robot.place bad_cell, 'north' }.not_to change { placed_robot.position }
     end
+
+    it 'cannot place robot with bad direction' do
+      robot.place cell, 'ololo'
+      expect(robot.position).to eq ''
+    end
   end
 
   describe '#rotate' do

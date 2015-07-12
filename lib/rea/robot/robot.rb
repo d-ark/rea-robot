@@ -11,7 +11,7 @@ module Rea
       end
 
       def place cell, direction
-        return if invalid_cell? cell
+        return if invalid_cell?(cell) || invalid_direction?(direction)
         @cell = cell
         @direction = direction
       end
@@ -30,6 +30,10 @@ module Rea
 
         def invalid_cell? new_cell
           !new_cell.on_board? board
+        end
+
+        def invalid_direction? new_direction
+          !DIRECTIONS.include? new_direction
         end
 
         DIRECTIONS = ['north', 'east', 'south', 'west']

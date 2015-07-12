@@ -53,20 +53,42 @@ describe Rea::Robot::Application do
         expect(run 'report'            ).to eq '2,3,WEST'
       end
 
-      it 'does not allow to put robot outside board' do
+      it 'does not allow to place robot outside board' do
         expect(run 'report'            ).to eq ''
         expect(run 'place', '7,1,north').to eq ''
         expect(run 'report'            ).to eq ''
       end
 
-      it 'does not affect on robot when tried to put it outside board' do
+      it 'does not affect on robot when tried to place it outside board' do
         expect(run 'place', '1,1,north').to eq ''
         expect(run 'report'            ).to eq '1,1,NORTH'
         expect(run 'place', '7,1,north').to eq ''
         expect(run 'report'            ).to eq '1,1,NORTH'
       end
 
-      # TODO Add tests for invalid input like 1,b,ololo
+      it 'does not allow to place robot with bad direction' do
+        expect(run 'report'            ).to eq ''
+        expect(run 'place', '1,1,ololo').to eq ''
+        expect(run 'report'            ).to eq ''
+      end
+
+      it 'does not allow to place robot without direction' do
+        expect(run 'report'      ).to eq ''
+        expect(run 'place', '1,1').to eq ''
+        expect(run 'report'      ).to eq ''
+      end
+
+      it 'does not allow to place robot on not integer coordinates' do
+        expect(run 'report'            ).to eq ''
+        expect(run 'place', 'a,1,north').to eq ''
+        expect(run 'report'            ).to eq ''
+      end
+
+      it 'does not allow to place robot if no arguments provided' do
+        expect(run 'report').to eq ''
+        expect(run 'place' ).to eq ''
+        expect(run 'report').to eq ''
+      end
     end
 
     context 'move command' do

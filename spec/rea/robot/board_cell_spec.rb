@@ -16,4 +16,16 @@ describe Rea::Robot::BoardCell do
     expect(cell1).not_to eq cell3
   end
 
+  describe '#on_board?' do
+    let(:board_cell) { described_class.new(1,2) }
+
+    it 'calls valid on_board? method of a board' do
+      board = double
+
+      expect(board).to receive(:on_board?).with(1,2) { true }
+
+      board_cell.on_board? board
+    end
+  end
+
 end

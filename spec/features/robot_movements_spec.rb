@@ -7,7 +7,7 @@ describe "Rea Robot" do
     let(:cmd) {"#{exe}" }
 
     it "does simple moving" do
-      inputs = ["PLACE 0,0,NORTH", "MOVE", "REPORT"]
+      inputs = ["PLACE 0,0,NORTH", "MOVE", "REPORT", "EXIT"]
 
       process = run_interactive(cmd)
       inputs.each { |input_line| type input_line }

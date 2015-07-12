@@ -5,14 +5,20 @@ require "rea/robot/board"
 
 describe Rea::Robot::Robot do
   let(:board) { Rea::Robot::Board.new 5, 5 }
+  let(:cell) { Rea::Robot::BoardCell.new 1, 1 }
   let(:robot) { described_class.new board }
+  let(:placed_robot) do
+    placed_robot = described_class.new(board)
+    placed_robot.place cell, 'north'
+    placed_robot
+  end
+
 
   it 'creates robot with empty position (not placed)' do
     expect(robot.position).to eq ''
   end
 
   describe '#place' do
-    let(:cell) { Rea::Robot::BoardCell.new 1, 1 }
     let(:antother_cell) { Rea::Robot::BoardCell.new 2, 3 }
     let(:bad_cell) { Rea::Robot::BoardCell.new -1, 78 }
 
@@ -22,8 +28,8 @@ describe Rea::Robot::Robot do
     end
 
     it 'changes robots position' do
-      robot.place cell, 'west'
-      expect { robot.place antother_cell, 'north' }.to change { robot.position }
+      placed_robot.place cell, 'west'
+      expect { placed_robot.place antother_cell, 'north' }.to change { placed_robot.position }
         .from('1,1,WEST').to('2,3,NORTH')
     end
 
@@ -33,33 +39,48 @@ describe Rea::Robot::Robot do
     end
 
     it 'does not change robots position to outside the board' do
-      robot.place cell, 'west'
-      expect { robot.place bad_cell, 'north' }.not_to change { robot.position }
+      placed_robot.place cell, 'west'
+      expect { placed_robot.place bad_cell, 'north' }.not_to change { placed_robot.position }
     end
   end
 
   describe '#rotate' do
-    let(:cell) { Rea::Robot::BoardCell.new 1, 1 }
-    let(:robot) do
-      robot = described_class.new(board)
-      robot.place cell, 'north'
-      robot
-    end
 
     it 'turns robot right' do
-      expect {robot.rotate 'right'}.to change {robot.position}.from('1,1,NORTH').to('1,1,EAST')
-      expect {robot.rotate 'right'}.to change {robot.position}.from('1,1,EAST').to('1,1,SOUTH')
-      expect {robot.rotate 'right'}.to change {robot.position}.from('1,1,SOUTH').to('1,1,WEST')
-      expect {robot.rotate 'right'}.to change {robot.position}.from('1,1,WEST').to('1,1,NORTH')
+      expect {placed_robot.rotate 'right'}.to change {placed_robot.position}.from('1,1,NORTH').to('1,1,EAST')
+      expect {placed_robot.rotate 'right'}.to change {placed_robot.position}.from('1,1,EAST').to('1,1,SOUTH')
+      expect {placed_robot.rotate 'right'}.to change {placed_robot.position}.from('1,1,SOUTH').to('1,1,WEST')
+      expect {placed_robot.rotate 'right'}.to change {placed_robot.position}.from('1,1,WEST').to('1,1,NORTH')
     end
 
     it 'turns robot left' do
-      expect {robot.rotate 'left'}.to change {robot.position}.from('1,1,NORTH').to('1,1,WEST')
-      expect {robot.rotate 'left'}.to change {robot.position}.from('1,1,WEST').to('1,1,SOUTH')
-      expect {robot.rotate 'left'}.to change {robot.position}.from('1,1,SOUTH').to('1,1,EAST')
-      expect {robot.rotate 'left'}.to change {robot.position}.from('1,1,EAST').to('1,1,NORTH')
+      expect {placed_robot.rotate 'left'}.to change {placed_robot.position}.from('1,1,NORTH').to('1,1,WEST')
+      expect {placed_robot.rotate 'left'}.to change {placed_robot.position}.from('1,1,WEST').to('1,1,SOUTH')
+      expect {placed_robot.rotate 'left'}.to change {placed_robot.position}.from('1,1,SOUTH').to('1,1,EAST')
+      expect {placed_robot.rotate 'left'}.to change {placed_robot.position}.from('1,1,EAST').to('1,1,NORTH')
     end
 
+    it 'does not turns not placed robot' do
+      expect {robot.rotate 'left'}.not_to change {robot.position}
+      expect {robot.rotate 'right'}.not_to change {robot.position}
+    end
+  end
+
+  describe '#move' do
+    let(:corner_cell) { Rea::Robot::BoardCell.new 0, 0 }
+
+    it 'moves robot' do
+      expect {placed_robot.move}.to change {placed_robot.position}.from('1,1,NORTH').to('1,2,NORTH')
+    end
+
+    it 'moves robot' do
+      expect {placed_robot.move}.to change {placed_robot.position}.from('1,1,NORTH').to('1,2,NORTH')
+    end
+
+    it 'doesnt move robot outside the board' do
+      robot.place corner_cell, 'SOUTH'
+      expect {robot.move}.not_to change {robot.position}
+    end
   end
 
 end

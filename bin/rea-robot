@@ -3,4 +3,4 @@
 $:.unshift(File.expand_path(File.join(__FILE__, "..", "..", "lib")))
 require "rea/robot/cli"
 
-Rea::Robot::Cli.new.start!
+Rea::Robot::Cli.new.start

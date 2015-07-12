@@ -43,6 +43,7 @@ describe Rea::Robot::Robot do
     let(:robot) do
       robot = described_class.new(board)
       robot.place cell, 'north'
+      robot
     end
 
     it 'turns robot right' do

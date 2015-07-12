@@ -16,12 +16,26 @@ module Rea
         @direction = direction
       end
 
+      def rotate side
+        @direction = next_direction side
+      end
+
     private
 
       attr_reader :cell, :direction, :board
 
       def invalid_cell? cell
         !cell.on_board? board
+      end
+
+      DIRECTIONS = ['north', 'east', 'south', 'west']
+
+      def next_direction side
+        DIRECTIONS[ ( DIRECTIONS.find_index(@direction) + step(side) ) % DIRECTIONS.size]
+      end
+
+      def step side
+        side == 'right' ? 1 : -1
       end
 
     end

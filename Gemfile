@@ -5,3 +5,4 @@ gemspec
 
 gem 'guard-rspec', require: false
 gem 'reek'
+gem 'aruba'

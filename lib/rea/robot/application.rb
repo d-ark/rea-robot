@@ -24,6 +24,12 @@ module Rea
           x,y,direction = args.first.split ','
           robot.place BoardCell.new(x.to_i, y.to_i), direction
           ''
+        when 'left'
+          robot.rotate 'left'
+          ''
+        when 'right'
+          robot.rotate 'right'
+          ''
         else
           ''
         end

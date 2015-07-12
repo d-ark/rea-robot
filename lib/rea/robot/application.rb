@@ -21,8 +21,12 @@ module Rea
           robot.move
           ''
         when 'place'
-          x,y,direction = args.first.split ','
-          robot.place BoardCell.new(x.to_i, y.to_i), direction
+          # TODO Refactor this !
+          x,y,direction = (args.first || '').split ','
+          if x.to_i.to_s == x && y.to_i.to_s == y
+            cell = BoardCell.new(x.to_i, y.to_i)
+            robot.place cell, direction
+          end
           ''
         when 'left'
           robot.rotate 'left'

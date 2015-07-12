@@ -10,6 +10,10 @@ module Rea
         @coord_x == other.coord_x && @coord_y == other.coord_y
       end
 
+      def on_board? board
+        board.on_board? @coord_x, @coord_y
+      end
+
       protected
 
         attr_reader :coord_x, :coord_y

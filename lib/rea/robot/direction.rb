@@ -22,7 +22,7 @@ module Rea
       end
 
       def move cell
-        cell.neighbour direction
+        cell.neighbour DELTA_X[direction], DELTA_Y[direction]
       end
 
       protected
@@ -31,6 +31,19 @@ module Rea
       private
 
         DIRECTIONS = ['north', 'east', 'south', 'west']
+        DELTA_X = {
+          'north' => 0,
+          'east' => 1,
+          'south' => 0,
+          'west' => -1
+        }
+        DELTA_Y = {
+          'north' => 1,
+          'east' => 0,
+          'south' => -1,
+          'west' => 0
+        }
+
 
         def next_direction
           DIRECTIONS[ ( DIRECTIONS.find_index(direction) + 1 ) % DIRECTIONS.size]

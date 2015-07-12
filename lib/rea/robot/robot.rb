@@ -1,3 +1,5 @@
+require 'rea/robot/direction'
+
 module Rea
   module Robot
     class Robot
@@ -55,7 +57,7 @@ module Rea
         end
 
         def next_cell
-          cell.neighbour direction
+          Direction.new(direction).move cell
         end
 
     end

@@ -29,6 +29,14 @@ describe Rea::Robot::BoardCell do
 
   end
 
+  describe '#to_s' do
+    let(:board_cell) { described_class.new(1,2) }
+
+    it 'represents cell' do
+      expect(board_cell.to_s).to eq('1,2')
+    end
+  end
+
   describe '#neighbour' do
     # The origin (0,0) can be considered to be the SOUTH WEST most corner.
     #

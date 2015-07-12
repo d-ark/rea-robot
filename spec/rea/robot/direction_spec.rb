@@ -28,6 +28,16 @@ describe Rea::Robot::Direction do
     end
   end
 
+  describe '#valid?' do
+    it 'returns true if valid' do
+      expect(direction).to be_valid
+    end
+
+    it 'returns false if not valid' do
+      expect(Direction.new 'ololo').not_to be_valid
+    end
+  end
+
   describe '#move' do
     # The origin (0,0) can be considered to be the SOUTH WEST most corner.
     #

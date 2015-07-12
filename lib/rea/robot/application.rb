@@ -15,7 +15,7 @@ module Rea
       end
 
       def closed?
-        @closed || false
+        !!@closed
       end
 
     end

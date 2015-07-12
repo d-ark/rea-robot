@@ -78,8 +78,8 @@ describe Rea::Robot::Robot do
     end
 
     it 'doesnt move robot outside the board' do
-      robot.place corner_cell, 'SOUTH'
-      expect {robot.move}.not_to change {robot.position}
+      robot.place corner_cell, 'south'
+      expect { robot.move }.not_to change { robot.position }
     end
   end
 

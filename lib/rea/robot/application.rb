@@ -23,6 +23,7 @@ module Rea
         when 'place'
           # TODO Refactor this !
           x,y,direction = (args.first || '').split ','
+          direction = Direction.new direction
           cell = BoardCellFactory.build x, y
           robot.place cell, direction
           ''

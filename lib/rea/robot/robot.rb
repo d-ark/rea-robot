@@ -9,17 +9,18 @@ module Rea
       end
 
       def position
-        placed? ? "#{cell.to_s},#{direction.upcase}" : ""
+        placed? ? "#{cell.to_s},#{direction.to_s}" : ""
       end
 
       def place cell, direction
-        return if invalid_cell?(cell) || invalid_direction?(direction)
+        return if invalid_cell?(cell) || !direction.valid?
         @cell = cell
         @direction = direction
       end
 
       def rotate side
-        @direction = next_direction side if placed?
+        @direction = direction.rotate_right if placed? && side == 'right'
+        @direction = direction.rotate_left if placed? && side == 'left'
       end
 
       def move
@@ -34,22 +35,8 @@ module Rea
           !new_cell.on_board? board
         end
 
-        def invalid_direction? new_direction
-          !DIRECTIONS.include? new_direction
-        end
-
-        DIRECTIONS = ['north', 'east', 'south', 'west']
-
-        def next_direction side
-          DIRECTIONS[ ( DIRECTIONS.find_index(direction) + step(side) ) % DIRECTIONS.size]
-        end
-
-        def step side
-          side == 'right' ? 1 : -1
-        end
-
         def placed?
-          !!(cell && direction)
+          !!(cell && direction.valid?)
         end
 
         def should_move?
@@ -57,7 +44,7 @@ module Rea
         end
 
         def next_cell
-          Direction.new(direction).move cell
+          direction.move cell
         end
 
     end

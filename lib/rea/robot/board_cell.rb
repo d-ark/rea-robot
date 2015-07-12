@@ -1,30 +1,32 @@
+require 'rea/robot/board_cell_factory'
+
 module Rea
   module Robot
     class BoardCell
-      def initialize coord_x, coord_y
-        @coord_x = coord_x
-        @coord_y = coord_y
+      def initialize left, top
+        @left = left
+        @top = top
       end
 
       def == other
-        @coord_x == other.coord_x && @coord_y == other.coord_y
+        @left == other.left && @top == other.top
       end
 
       def on_board? board
-        board.on_board? @coord_x, @coord_y
+        board.on_board? @left, @top
       end
 
       def neighbour direction
-        self.class.new neighbour_x(direction), neighbour_y(direction)
+        BoardCellFactory.build neighbour_x(direction), neighbour_y(direction)
       end
 
       def to_s
-        "#{coord_x},#{coord_y}"
+        "#{left},#{top}"
       end
 
       protected
 
-        attr_reader :coord_x, :coord_y
+        attr_reader :left, :top
 
       private
 
@@ -42,11 +44,11 @@ module Rea
         }
 
         def neighbour_x direction
-          @coord_x + DELTA_X[direction]
+          @left + DELTA_X[direction]
         end
 
         def neighbour_y direction
-          @coord_y + DELTA_Y[direction]
+          @top + DELTA_Y[direction]
         end
 
     end

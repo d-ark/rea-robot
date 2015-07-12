@@ -1,5 +1,5 @@
 require 'rea/robot/board'
-require 'rea/robot/board_cell'
+require 'rea/robot/board_cell_factory'
 require 'rea/robot/robot'
 
 module Rea
@@ -23,10 +23,8 @@ module Rea
         when 'place'
           # TODO Refactor this !
           x,y,direction = (args.first || '').split ','
-          if x.to_i.to_s == x && y.to_i.to_s == y
-            cell = BoardCell.new(x.to_i, y.to_i)
-            robot.place cell, direction
-          end
+          cell = BoardCellFactory.build x, y
+          robot.place cell, direction
           ''
         when 'left'
           robot.rotate 'left'

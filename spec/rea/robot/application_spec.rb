@@ -77,11 +77,26 @@ describe Rea::Robot::Application do
         expect(run 'report'            ).to eq '1,2,NORTH'
       end
 
-      # TODO Add tests for bad movements
-
+      it 'does not move robot outside' do
+        expect(run 'place', '0,0,south').to eq ''
+        expect(run 'move'              ).to eq ''
+        expect(run 'report'            ).to eq '0,0,SOUTH'
+      end
     end
 
+    context 'rotate commands' do
+      it 'rotates left' do
+        expect(run 'place', '1,1,north').to eq ''
+        expect(run 'left'              ).to eq ''
+        expect(run 'report'            ).to eq '1,1,WEST'
+      end
 
+      it 'rotates right' do
+        expect(run 'place', '1,1,north').to eq ''
+        expect(run 'right'             ).to eq ''
+        expect(run 'report'            ).to eq '1,1,EAST'
+      end
+    end
   end
 
 end

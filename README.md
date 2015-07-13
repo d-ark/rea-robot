@@ -59,6 +59,7 @@ To install this application using RVM:
 To run within docker
 
 1) Install docker
+
 2) Clone the repo from github
 
     $ git clone https://github.com/d-ark/rea-robot

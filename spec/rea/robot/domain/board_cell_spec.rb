@@ -1,5 +1,4 @@
 require "spec_helper"
-require "rea/robot/board_cell"
 
 describe Rea::Robot::BoardCell do
 

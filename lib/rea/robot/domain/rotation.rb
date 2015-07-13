@@ -1,6 +1,6 @@
-require 'rea/robot/left_rotation'
-require 'rea/robot/right_rotation'
-require 'rea/robot/null_rotation'
+require 'rea/robot/domain/left_rotation'
+require 'rea/robot/domain/right_rotation'
+require 'rea/robot/domain/null_rotation'
 
 module Rea
   module Robot

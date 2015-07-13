@@ -1,6 +1,4 @@
 require "spec_helper"
-require "rea/robot/board"
-
 
 describe Rea::Robot::Board do
 

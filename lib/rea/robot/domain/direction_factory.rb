@@ -1,5 +1,5 @@
-require "rea/robot/direction"
-require "rea/robot/null_direction"
+require "rea/robot/domain/direction"
+require "rea/robot/domain/null_direction"
 
 module Rea
   module Robot

@@ -1,6 +1,4 @@
 require "spec_helper"
-require "rea/robot/board_cell"
-require "rea/robot/null_board_cell"
 
 describe Rea::Robot::NullBoardCell do
   let(:board_cell) { described_class.new }

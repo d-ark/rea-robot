@@ -1,5 +1,4 @@
 require "spec_helper"
-require "rea/robot/direction_factory"
 
 describe Rea::Robot::DirectionFactory do
 

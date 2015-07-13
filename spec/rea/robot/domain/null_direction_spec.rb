@@ -1,7 +1,4 @@
 require "spec_helper"
-require "rea/robot/null_direction"
-require 'rea/robot/board_cell_factory'
-require 'rea/robot/direction'
 
 
 describe Rea::Robot::NullDirection do

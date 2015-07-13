@@ -1,5 +1,3 @@
-require 'rea/robot/direction_factory'
-
 module Rea
   module Robot
     class Direction

@@ -1,9 +1,4 @@
 require "spec_helper"
-require "rea/robot/robot"
-require "rea/robot/board_cell"
-require "rea/robot/board"
-require "rea/robot/board_cell_factory"
-require "rea/robot/direction_factory"
 
 
 describe Rea::Robot::Robot do

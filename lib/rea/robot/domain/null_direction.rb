@@ -1,5 +1,3 @@
-require 'rea/robot/board_cell_factory'
-
 module Rea
   module Robot
     class NullDirection

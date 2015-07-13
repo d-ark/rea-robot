@@ -1,5 +1,4 @@
 require "spec_helper"
-require "rea/robot/application"
 
 describe Rea::Robot::Application do
   let(:application) { described_class.new }

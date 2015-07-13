@@ -1,4 +1,4 @@
-require 'rea/robot/application'
+require 'rea/robot'
 
 module Rea
   module Robot
@@ -7,11 +7,14 @@ module Rea
         @application = Rea::Robot::Application.new
       end
 
+      def render data
+        puts data unless data.empty?
+      end
+
       def start
         STDIN.each do |line|
-          res = handle_input line
+          render handle_input line
           break if @application.closed?
-          puts res unless res.empty?
         end
       end
 

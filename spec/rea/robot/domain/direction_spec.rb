@@ -1,6 +1,4 @@
 require "spec_helper"
-require "rea/robot/direction"
-require "rea/robot/board_cell"
 
 describe Rea::Robot::Direction do
   let(:direction) { described_class.new 'north' }

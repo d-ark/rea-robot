@@ -1,8 +1,3 @@
-require 'rea/robot/board'
-require 'rea/robot/board_cell_factory'
-require 'rea/robot/direction_factory'
-require 'rea/robot/robot'
-
 module Rea
   module Robot
     class Application

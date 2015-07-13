@@ -1,5 +1,5 @@
-require "rea/robot/board_cell"
-require "rea/robot/null_board_cell"
+require "rea/robot/domain/board_cell"
+require "rea/robot/domain/null_board_cell"
 
 module Rea
   module Robot

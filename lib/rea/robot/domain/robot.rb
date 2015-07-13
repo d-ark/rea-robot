@@ -1,6 +1,3 @@
-require 'rea/robot/direction'
-require 'rea/robot/rotation'
-
 module Rea
   module Robot
     class Robot
@@ -34,7 +31,7 @@ module Rea
         attr_reader :cell, :direction, :board
 
         def placed?
-          !!(cell && direction.valid?)
+          direction.valid?
         end
 
         def next_cell

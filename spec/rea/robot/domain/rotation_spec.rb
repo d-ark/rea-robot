@@ -1,5 +1,4 @@
 require "spec_helper"
-require "rea/robot/rotation"
 
 describe Rea::Robot::Rotation do
   it 'builds LeftRotation if asked' do

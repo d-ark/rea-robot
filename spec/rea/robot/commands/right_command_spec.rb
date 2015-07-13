@@ -20,7 +20,7 @@ module Rea
 
       it 'returns empty string after rotation' do
         robot.place BoardCellFactory.build(0, 0), DirectionFactory.build('south')
-        expect(command.call).to be ''
+        expect(command.call).to eq ''
       end
 
       it 'ignores command when robot is not placed' do
@@ -28,7 +28,7 @@ module Rea
       end
 
       it 'returns empty string after ignoring' do
-        expect(command.call).to be ''
+        expect(command.call).to eq ''
       end
 
     end

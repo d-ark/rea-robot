@@ -38,23 +38,56 @@ The application can read in commands of the following form:
 
 ## Installation
 
-# TODO !!!!!!!!
+To install this application using RVM:
+
+1) Install rvm (http://rvm.io/)
+
+2) Clone the repo from github
+
+    $ git clone https://github.com/d-ark/rea-robot
+
+3) Go to project directory and run bundle
+
+    $ bundle install
+
+4) Start the app with command
+
+    $ ./bin/rea-robot
+
+5) Enjoy!
+
+To run within docker
+
+1) Install docker
+2) Clone the repo from github
+
+    $ git clone https://github.com/d-ark/rea-robot
+
+3) Go to project directory and build docker image with provided script
+
+    $ ./bin/docker-build
+
+    OR manualy
+
+    $ docker build -t <DOCKER_IMAGE_NAME> .
+
+4) Start the app with command
+
+    $ ./bin/rea-robot-docker
+
+    OR start container manualy:
+
+    $ docker run -it <DOCKER_IMAGE_NAME>
+
+5) Enjoy!
 
 ## Usage
 
-Start the application with `rea-robot` command
+Start the application as explained above and input any commands separated by new line.
 
-    $ rea-robot
+The output (for REPORT command only) will appear immidiately after command is entered.
 
-And input any commands separated by new line. The output (for REPORT command) will appear immidiately after command is entered.
-
-You can also provide a source file with list of commands using -f option
-
-    $ rea-robot -f robot-program.txt
-
-## Development
-
-# TODO !!!!!!!!
+All invalid commands will be ignored
 
 ## Contributing
 

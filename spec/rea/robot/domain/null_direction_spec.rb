@@ -22,12 +22,6 @@ module Rea
         end
       end
 
-      describe '#to_s' do
-        it 'returns empty string' do
-          expect(direction.to_s).to eq ""
-        end
-      end
-
       describe '#valid?' do
         it 'returns false' do
           expect(direction).not_to be_valid

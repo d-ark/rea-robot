@@ -22,12 +22,6 @@ module Rea
         end
       end
 
-      describe '#to_s' do
-        it 'returns upcased direction' do
-          expect(direction.to_s).to eq "NORTH"
-        end
-      end
-
       describe '#valid?' do
         it 'returns true if valid' do
           expect(direction).to be_valid

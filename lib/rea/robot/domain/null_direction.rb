@@ -18,10 +18,6 @@ module Rea
         self.class.new
       end
 
-      def to_s
-        ''
-      end
-
       def move _
         BoardCellFactory.build nil, nil
       end

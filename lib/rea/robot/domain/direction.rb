@@ -18,10 +18,6 @@ module Rea
         DirectionFactory.build prev_direction
       end
 
-      def to_s
-        direction.upcase
-      end
-
       def build_view view_class
         view_class.new direction
       end

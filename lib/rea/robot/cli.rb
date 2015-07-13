@@ -4,7 +4,7 @@ module Rea
   module Robot
     class Cli
       def initialize
-        @application = Rea::Robot::Application.new
+        @application = Application.new
       end
 
       def render data

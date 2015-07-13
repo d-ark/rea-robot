@@ -1,11 +1,15 @@
 require "spec_helper"
 
-describe Rea::Robot::RightRotation do
-  it 'calls #rotate_right on direction' do
-    direction = double
+module Rea
+  module Robot
+    describe RightRotation do
+      it 'calls #rotate_right on direction' do
+        direction = double
 
-    expect(direction).to receive(:rotate_right).once
+        expect(direction).to receive(:rotate_right).once
 
-    described_class.new.rotate(direction)
+        described_class.new.rotate(direction)
+      end
+    end
   end
 end

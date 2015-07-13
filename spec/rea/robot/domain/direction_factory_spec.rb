@@ -1,14 +1,17 @@
 require "spec_helper"
 
-describe Rea::Robot::DirectionFactory do
+module Rea
+  module Robot
+    describe DirectionFactory do
 
-  it 'builds direction' do
-    expect(described_class.build('north')).to eq Rea::Robot::Direction.new('north')
+      it 'builds direction' do
+        expect(described_class.build('north')).to eq Direction.new('north')
+      end
+
+      it 'builds null direction if provided data is not correct' do
+        expect(described_class.build('ololo').class).to eq NullDirection
+        expect(described_class.build(nil).class).to eq NullDirection
+      end
+    end
   end
-
-  it 'builds null direction if provided data is not correct' do
-    expect(described_class.build('ololo').class).to eq Rea::Robot::NullDirection
-    expect(described_class.build(nil).class).to eq Rea::Robot::NullDirection
-  end
-
 end

@@ -79,6 +79,15 @@ module Rea
         end
       end
 
+      describe '#build_view' do
+        it 'creates view with cell data' do
+          view_class = double
+          view = double
+          expect(view_class).to receive(:new).with(cell: cell, direction: north) { view }
+          expect(placed_robot.build_view view_class).to be view
+        end
+      end
+
       describe '#move' do
         let(:corner_cell) { BoardCell.new 0, 0 }
 

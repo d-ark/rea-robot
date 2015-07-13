@@ -22,6 +22,10 @@ module Rea
         direction.upcase
       end
 
+      def build_view view_class
+        view_class.new direction
+      end
+
       def move cell
         cell.neighbour *DIRECTIONS_STEPS[direction]
       end

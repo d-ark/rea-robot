@@ -1,5 +1,5 @@
 require "spec_helper"
-require "rea/robot/views/board_cell_view"
+require "rea/robot/views/direction_view"
 
 module Rea
   module Robot

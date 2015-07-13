@@ -26,6 +26,9 @@ module Rea
         BoardCellFactory.build nil, nil
       end
 
+      def build_view view_class
+        view_class.new nil
+      end
     end
   end
 end

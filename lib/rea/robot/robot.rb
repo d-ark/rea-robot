@@ -1,4 +1,5 @@
 require 'rea/robot/direction'
+require 'rea/robot/rotation'
 
 module Rea
   module Robot
@@ -20,8 +21,7 @@ module Rea
 
       def rotate side
         return unless placed?
-        @direction = direction.rotate_right if side == 'right'
-        @direction = direction.rotate_left  if side == 'left'
+        @direction = Rotation.build(side).rotate direction
       end
 
       def move

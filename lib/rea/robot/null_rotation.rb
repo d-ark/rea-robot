@@ -1,7 +1,8 @@
 module Rea
   module Robot
     class NullRotation
-      def rotate _
+      def rotate direction
+        direction
       end
     end
   end

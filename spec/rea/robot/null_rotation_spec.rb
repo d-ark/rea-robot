@@ -3,6 +3,7 @@ require "rea/robot/null_rotation"
 
 describe Rea::Robot::NullRotation do
   it 'does nothing with direction' do
-    described_class.new.rotate(double)
+    direction = double
+    expect(described_class.new.rotate(direction)).to eq direction
   end
 end

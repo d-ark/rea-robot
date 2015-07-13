@@ -14,6 +14,10 @@ module Rea
         ''
       end
 
+      def build_view view_class
+        view_class.new nil
+      end
+
       def neighbour _
         self.class.new
       end

@@ -18,6 +18,7 @@ The application can read in commands of the following form:
     LEFT
     RIGHT
     REPORT
+    EXIT
 
 - PLACE will put the toy robot on the table in position X,Y and facing NORTH,
   SOUTH, EAST or WEST.
@@ -31,6 +32,7 @@ The application can read in commands of the following form:
 - LEFT and RIGHT will rotate the robot 90 degrees in the specified direction
   without changing the position of the robot.
 - REPORT will announce the X,Y and F of the robot to standard output.
+- EXIT will terminate the app
 
 - A robot that is not on the table will ignore the MOVE, LEFT, RIGHT
   and REPORT commands.

@@ -11,31 +11,8 @@ module Rea
       end
 
       def perform_command command='', *args
-        case command
-        when 'exit'
-          close
-          ''
-        when 'report'
-          robot.position
-        when 'move'
-          robot.move
-          ''
-        when 'place'
-          # TODO Refactor this !
-          x,y,direction = (args.first || '').split ','
-          direction = DirectionFactory.build direction
-          cell = BoardCellFactory.build x, y
-          robot.place cell, direction
-          ''
-        when 'left'
-          robot.rotate 'left'
-          ''
-        when 'right'
-          robot.rotate 'right'
-          ''
-        else
-          ''
-        end
+        close and return '' if command == 'exit'
+        COMMANDS[command].new(robot, args).call
       end
 
       def closed?
@@ -50,6 +27,14 @@ module Rea
           @closed = true
         end
 
+        COMMANDS = {
+          'place' => PlaceCommand,
+          'left' => LeftCommand,
+          'right' => RightCommand,
+          'move' => MoveCommand,
+          'report' => ReportCommand
+        }
+        COMMANDS.default = NullCommand
     end
   end
 end

@@ -5,10 +5,10 @@ module Rea
   module Robot
     module Views
       describe RobotView do
-        let(:cell) { BoardCellFactory.new 1, 2 }
-        let(:direction) { DirectionFactory.new 'east' }
-        let(:empty_cell) { BoardCellFactory.new nil, nil }
-        let(:empty_direction) { DirectionFactory.new nil }
+        let(:cell) { BoardCellFactory.build 1, 2 }
+        let(:direction) { DirectionFactory.build 'east' }
+        let(:empty_cell) { BoardCellFactory.build nil, nil }
+        let(:empty_direction) { DirectionFactory.build nil }
         let(:view) do
           described_class.new cell: cell, direction: direction
         end

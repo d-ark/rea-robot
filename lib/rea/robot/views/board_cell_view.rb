@@ -1,11 +1,8 @@
 module Rea
   module Robot
     module Views
+      # Represents BoardCell as a string
       class BoardCellView
-        def self.build(cell)
-          cell.build_view self
-        end
-
         def initialize cell
           @cell = cell
         end

@@ -18,10 +18,6 @@ module Rea
         expect(board_cell.on_board? double).not_to be
       end
 
-      it 'represents cell' do
-        expect(board_cell.to_s).to eq ''
-      end
-
       it 'finds neighbour' do
         expect(board_cell.neighbour('north').class).to eq described_class
       end

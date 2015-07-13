@@ -19,10 +19,6 @@ module Rea
         BoardCellFactory.build left + horizontal, top + vetical
       end
 
-      def to_s
-        "#{left},#{top}"
-      end
-
       def build_view view
         view.new left: left, top: top
       end

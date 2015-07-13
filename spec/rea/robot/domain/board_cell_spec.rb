@@ -30,13 +30,6 @@ module Rea
 
       end
 
-      describe '#to_s' do
-
-        it 'represents cell' do
-          expect(board_cell.to_s).to eq('1,2')
-        end
-      end
-
       describe '#build_view' do
         it 'creates view with cell data' do
           view_class = double

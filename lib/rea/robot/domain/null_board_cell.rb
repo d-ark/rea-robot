@@ -10,10 +10,6 @@ module Rea
         false
       end
 
-      def to_s
-        ''
-      end
-
       def build_view view_class
         view_class.new nil
       end

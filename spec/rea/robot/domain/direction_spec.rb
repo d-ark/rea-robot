@@ -38,6 +38,15 @@ module Rea
         end
       end
 
+      describe '#build_view' do
+        it 'creates view with direction data' do
+          view_class = double
+          view = double
+          expect(view_class).to receive(:new).with('north') { view }
+          expect(direction.build_view view_class).to be view
+        end
+      end
+
       describe '#move' do
         # The origin (0,0) can be considered to be the SOUTH WEST most corner.
         #

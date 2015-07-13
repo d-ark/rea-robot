@@ -41,6 +41,15 @@ module Rea
           expect(direction.move(cell).class).to eq NullBoardCell
         end
       end
+
+      describe '#build_view' do
+        it 'creates view with direction data' do
+          view_class = double
+          view = double
+          expect(view_class).to receive(:new).with(nil) { view }
+          expect(direction.build_view view_class).to be view
+        end
+      end
     end
   end
 end

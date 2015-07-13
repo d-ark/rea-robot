@@ -1,3 +1,5 @@
+require 'rea/robot/direction_factory'
+
 module Rea
   module Robot
     class Direction
@@ -10,11 +12,11 @@ module Rea
       end
 
       def rotate_right
-        self.class.new next_direction
+        DirectionFactory.build next_direction
       end
 
       def rotate_left
-        self.class.new prev_direction
+        DirectionFactory.build prev_direction
       end
 
       def to_s
@@ -22,7 +24,7 @@ module Rea
       end
 
       def move cell
-        cell.neighbour DELTA_X[direction], DELTA_Y[direction]
+        cell.neighbour *DIRECTIONS_STEPS[direction]
       end
 
       def valid?
@@ -34,19 +36,14 @@ module Rea
 
       private
 
-        DIRECTIONS = ['north', 'east', 'south', 'west']
-        DELTA_X = {
-          'north' => 0,
-          'east' => 1,
-          'south' => 0,
-          'west' => -1
+        DIRECTIONS_STEPS = {
+          'north' => [ 0, 1],
+          'east' =>  [ 1, 0],
+          'south' => [ 0,-1],
+          'west' =>  [-1, 0]
         }
-        DELTA_Y = {
-          'north' => 1,
-          'east' => 0,
-          'south' => -1,
-          'west' => 0
-        }
+
+        DIRECTIONS = DIRECTIONS_STEPS.keys
 
 
         def next_direction

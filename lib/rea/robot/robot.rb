@@ -13,14 +13,15 @@ module Rea
       end
 
       def place new_cell, new_direction
-        return if invalid_cell?(new_cell) || !new_direction.valid?
+        return unless new_direction.valid? && valid_cell?(new_cell)
         @cell = new_cell
         @direction = new_direction
       end
 
       def rotate side
-        @direction = direction.rotate_right if placed? && side == 'right'
-        @direction = direction.rotate_left if placed? && side == 'left'
+        return unless placed?
+        @direction = direction.rotate_right if side == 'right'
+        @direction = direction.rotate_left  if side == 'left'
       end
 
       def move
@@ -31,8 +32,8 @@ module Rea
 
         attr_reader :cell, :direction, :board
 
-        def invalid_cell? new_cell
-          !new_cell.on_board? board
+        def valid_cell? new_cell
+          new_cell.on_board? board
         end
 
         def placed?
@@ -40,7 +41,7 @@ module Rea
         end
 
         def should_move?
-          placed? && !invalid_cell?(next_cell)
+          placed? && valid_cell?(next_cell)
         end
 
         def next_cell

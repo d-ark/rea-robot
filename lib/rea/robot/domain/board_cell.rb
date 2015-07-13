@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # Represents cell where robot can be placed in
     class BoardCell
       def initialize left, top
         @left = left

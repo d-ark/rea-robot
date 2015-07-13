@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # Represents command object for handling PLACE command sent to robot
     class PlaceCommand
       def initialize robot, args
         @robot = robot

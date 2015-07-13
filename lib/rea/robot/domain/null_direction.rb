@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # Represents invalid robot direction
     class NullDirection
       def == _
         false

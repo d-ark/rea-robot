@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # Represents where robot is directed to
     class Direction
       def initialize direction
         @direction = direction

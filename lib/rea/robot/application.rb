@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # Represents handling commands sent to robot
     class Application
 
       def initialize

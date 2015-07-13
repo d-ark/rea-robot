@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # Represents invalid board cell
     class NullBoardCell
       def == _
         false

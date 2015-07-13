@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # Represents robot placed on the board
     class Robot
 
       def initialize board, cell, direction

@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # Represents command object for handling MOVE command sent to robot
     class MoveCommand
       def initialize robot, _
         @robot = robot

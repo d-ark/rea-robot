@@ -6,12 +6,12 @@ module Rea
       let(:board_cell) { described_class.new }
 
       it 'null cell is not equal to any other' do
-        cell1 = described_class.new
-        cell2 = described_class.new
-        cell3 = BoardCell.new(2,2)
+        cell = described_class.new
+        same_cell = described_class.new
+        real_cell = BoardCell.new(2,2)
 
-        expect(cell1).not_to eq cell2
-        expect(cell1).not_to eq cell3
+        expect(cell).not_to eq same_cell
+        expect(cell).not_to eq real_cell
       end
 
       it 'is always outside board' do

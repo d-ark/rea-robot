@@ -9,12 +9,12 @@ module Rea
       end
 
       it 'compares cells' do
-        cell1 = described_class.new(1,2)
-        cell2 = described_class.new(1,2)
-        cell3 = described_class.new(2,5)
+        cell = described_class.new(1,2)
+        same_cell = described_class.new(1,2)
+        other_cell = described_class.new(2,5)
 
-        expect(cell1).to eq cell2
-        expect(cell1).not_to eq cell3
+        expect(cell).to eq same_cell
+        expect(cell).not_to eq other_cell
       end
 
       describe '#on_board?' do

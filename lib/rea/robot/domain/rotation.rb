@@ -4,6 +4,7 @@ require 'rea/robot/domain/null_rotation'
 
 module Rea
   module Robot
+    # Represents selecting of rotation stratagy
     class Rotation
 
       def self.build(side)

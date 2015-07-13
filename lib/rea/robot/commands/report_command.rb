@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # Represents command object for handling REPORT command sent to robot
     class ReportCommand
       def initialize robot, _
         @robot = robot

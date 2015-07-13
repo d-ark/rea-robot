@@ -4,7 +4,7 @@ require "rea/robot/commands"
 require "rea/robot/application"
 
 module Rea
+  # Rea::Robot - Toy Robot Moving on the board
   module Robot
-    # Your code goes here...
   end
 end

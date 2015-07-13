@@ -3,6 +3,7 @@ require "rea/robot/domain/null_direction"
 
 module Rea
   module Robot
+    # Factory for getting robot directions
     class DirectionFactory
       def self.build direction
         direction = Direction.new direction

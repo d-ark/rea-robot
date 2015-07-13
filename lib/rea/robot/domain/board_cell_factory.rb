@@ -3,6 +3,7 @@ require "rea/robot/domain/null_board_cell"
 
 module Rea
   module Robot
+    # Ractory for getting BoardCells
     class BoardCellFactory
       def self.build left, top
         return NullBoardCell.new unless left.to_i.to_s == left.to_s

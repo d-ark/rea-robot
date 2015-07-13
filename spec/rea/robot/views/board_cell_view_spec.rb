@@ -23,6 +23,16 @@ module Rea
           expect(described_class.build cell).to be view
         end
 
+        it 'represents valid cell correctly' do
+          cell = BoardCellFactory.build 1, 2
+          expect(described_class.build(cell).to_s).to eq '1,2'
+        end
+
+        it 'represents null cell correctly' do
+          cell = BoardCellFactory.build nil, nil
+          expect(described_class.build(cell).to_s).to eq ''
+        end
+
       end
     end
   end

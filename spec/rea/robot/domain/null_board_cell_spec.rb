@@ -18,13 +18,19 @@ module Rea
         expect(board_cell.on_board? double).not_to be
       end
 
-
       it 'represents cell' do
         expect(board_cell.to_s).to eq ''
       end
 
       it 'finds neighbour' do
         expect(board_cell.neighbour('north').class).to eq described_class
+      end
+
+      it 'represents with view' do
+        view_class = double
+        view = double
+        expect(view_class).to receive(:new).with(nil) { view }
+        expect(board_cell.build_view view_class).to be view
       end
 
     end

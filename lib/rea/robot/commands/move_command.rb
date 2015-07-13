@@ -6,9 +6,12 @@ module Rea
       end
 
       def call
-        @robot.move
+        robot.move
         ''
       end
+
+      private
+        attr_reader :robot
     end
   end
 end

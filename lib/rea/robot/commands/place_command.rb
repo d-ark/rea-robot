@@ -7,17 +7,19 @@ module Rea
       end
 
       def call
-        @robot.place @cell, @direction
+        robot.place cell, direction
         ''
       end
 
       private
 
-      def parse_argument str
-        left,right,direction = str.split ','
-        @cell = BoardCellFactory.build left,right
-        @direction = DirectionFactory.build direction
-      end
+        attr_reader :robot, :cell, :direction
+
+        def parse_argument str
+          left,right,direction = str.split ','
+          @cell = BoardCellFactory.build left,right
+          @direction = DirectionFactory.build direction
+        end
     end
   end
 end

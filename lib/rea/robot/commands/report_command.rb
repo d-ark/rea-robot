@@ -6,8 +6,11 @@ module Rea
       end
 
       def call
-        @robot.position
+        robot.position
       end
+
+      private
+        attr_reader :robot
     end
   end
 end

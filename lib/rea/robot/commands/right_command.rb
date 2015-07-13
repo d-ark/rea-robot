@@ -6,9 +6,12 @@ module Rea
       end
 
       def call
-        @robot.rotate 'right'
+        robot.rotate 'right'
         ''
       end
+
+      private
+        attr_reader :robot
     end
   end
 end

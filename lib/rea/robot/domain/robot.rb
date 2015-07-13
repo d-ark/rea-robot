@@ -13,6 +13,10 @@ module Rea
         placed? ? "#{cell.to_s},#{direction.to_s}" : ""
       end
 
+      def build_view view_class
+        view_class.new cell: cell, direction: direction
+      end
+
       def place new_cell, new_direction
         return unless new_direction.valid? && new_cell.on_board?(board)
         @cell = new_cell

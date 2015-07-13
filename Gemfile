@@ -6,5 +6,5 @@ gemspec
 group :development do
   gem 'guard-rspec', require: false
   gem 'reek', require: false
-  gem 'aruba'
+  gem 'aruba', '0.6.2'
 end

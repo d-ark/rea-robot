@@ -12,10 +12,10 @@ module Rea
         placed? ? "#{cell.to_s},#{direction.to_s}" : ""
       end
 
-      def place cell, direction
-        return if invalid_cell?(cell) || !direction.valid?
-        @cell = cell
-        @direction = direction
+      def place new_cell, new_direction
+        return if invalid_cell?(new_cell) || !new_direction.valid?
+        @cell = new_cell
+        @direction = new_direction
       end
 
       def rotate side

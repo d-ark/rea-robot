@@ -11,7 +11,7 @@ module Rea
         )
       end
 
-      let(:command) { MoveCommand.new(robot, []) }
+      let(:command) { described_class.new(robot, []) }
 
       it 'moves robot' do
         expect { command.call }.to change { robot.position }.from('2,2,NORTH').to('2,3,NORTH')

@@ -11,7 +11,7 @@ module Rea
         )
       end
 
-      let(:command) { ReportCommand.new(robot, []) }
+      let(:command) { described_class.new(robot, []) }
 
       it 'returns robots position' do
         robot.place BoardCellFactory.build(0, 0), DirectionFactory.build('south')

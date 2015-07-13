@@ -5,8 +5,10 @@ module Rea
   module Robot
     class Robot
 
-      def initialize board
+      def initialize board, cell, direction
         @board = board
+        @direction = direction
+        @cell = cell
       end
 
       def position
@@ -14,34 +16,25 @@ module Rea
       end
 
       def place new_cell, new_direction
-        return unless new_direction.valid? && valid_cell?(new_cell)
+        return unless new_direction.valid? && new_cell.on_board?(board)
         @cell = new_cell
         @direction = new_direction
       end
 
       def rotate side
-        return unless placed?
         @direction = Rotation.build(side).rotate direction
       end
 
       def move
-        @cell = next_cell if should_move?
+        place next_cell, direction
       end
 
       private
 
         attr_reader :cell, :direction, :board
 
-        def valid_cell? new_cell
-          new_cell.on_board? board
-        end
-
         def placed?
           !!(cell && direction.valid?)
-        end
-
-        def should_move?
-          placed? && valid_cell?(next_cell)
         end
 
         def next_cell

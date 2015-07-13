@@ -2,6 +2,9 @@ require "spec_helper"
 require "rea/robot/robot"
 require "rea/robot/board_cell"
 require "rea/robot/board"
+require "rea/robot/board_cell_factory"
+require "rea/robot/direction_factory"
+
 
 describe Rea::Robot::Robot do
   let(:north) { Rea::Robot::Direction.new 'north' }
@@ -11,10 +14,12 @@ describe Rea::Robot::Robot do
   let(:invalid_direction) { Rea::Robot::Direction.new('ololo') }
 
   let(:board) { Rea::Robot::Board.new 5, 5 }
+  let(:null_cell) { Rea::Robot::BoardCellFactory.build nil, nil }
+  let(:null_direction) { Rea::Robot::DirectionFactory.build nil }
   let(:cell) { Rea::Robot::BoardCell.new 1, 1 }
-  let(:robot) { described_class.new board }
+  let(:robot) { described_class.new board, null_cell, null_direction }
   let(:placed_robot) do
-    placed_robot = described_class.new(board)
+    placed_robot = described_class.new(board,null_cell,null_direction)
     placed_robot.place cell, north
     placed_robot
   end

@@ -8,7 +8,11 @@ module Rea
     class Application
 
       def initialize
-        @robot = Robot.new Board.new(5,5)
+        @robot = Robot.new(
+          Board.new(5,5),
+          BoardCellFactory.build(nil, nil),
+          DirectionFactory.build(nil)
+        )
       end
 
       def perform_command command='', *args

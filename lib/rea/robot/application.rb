@@ -1,5 +1,6 @@
 require 'rea/robot/board'
 require 'rea/robot/board_cell_factory'
+require 'rea/robot/direction_factory'
 require 'rea/robot/robot'
 
 module Rea
@@ -23,7 +24,7 @@ module Rea
         when 'place'
           # TODO Refactor this !
           x,y,direction = (args.first || '').split ','
-          direction = Direction.new direction
+          direction = DirectionFactory.build direction
           cell = BoardCellFactory.build x, y
           robot.place cell, direction
           ''

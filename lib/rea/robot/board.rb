@@ -6,8 +6,8 @@ module Rea
         @height = height
       end
 
-      def on_board? coord_x, coord_y
-        (0..@width-1).include?(coord_x) && (0..@height-1).include?(coord_y)
+      def include? left, top
+        (0..@width-1).include?(left) && (0..@height-1).include?(top)
       end
     end
   end

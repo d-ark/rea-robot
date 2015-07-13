@@ -22,7 +22,7 @@ describe Rea::Robot::BoardCell do
     it 'calls valid on_board? method of a board' do
       board = double
 
-      expect(board).to receive(:on_board?).with(1,2) { true }
+      expect(board).to receive(:include?).with(1,2) { true }
 
       board_cell.on_board? board
     end

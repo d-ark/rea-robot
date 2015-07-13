@@ -4,7 +4,7 @@ require "rea/robot/board"
 
 describe Rea::Robot::Board do
 
-  describe '#on_board?' do
+  describe '#include?' do
     let(:board) { described_class.new(5, 5) }
 
 
@@ -12,7 +12,7 @@ describe Rea::Robot::Board do
       inside_samples = [0,0], [1,1], [0,4], [4,4], [2,3]
 
       inside_samples.each do |sample|
-        expect(board.on_board? *sample).to be
+        expect(board.include? *sample).to be
       end
     end
 
@@ -20,7 +20,7 @@ describe Rea::Robot::Board do
       outside_samples = [-1,0], [-1,-1], [5,-1], [5,1], [-78,3]
 
       outside_samples.each do |sample|
-        expect(board.on_board? *sample).not_to be
+        expect(board.include? *sample).not_to be
       end
     end
 

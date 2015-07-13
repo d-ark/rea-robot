@@ -13,7 +13,7 @@ module Rea
       end
 
       def on_board? board
-        board.on_board? left, top
+        board.include? left, top
       end
 
       def neighbour horizontal, vetical

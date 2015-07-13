@@ -7,7 +7,7 @@ module Rea
       end
 
       def call
-        robot.position
+        robot.build_view(Views::RobotView).to_s
       end
 
       private

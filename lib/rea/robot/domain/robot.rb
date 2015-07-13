@@ -9,10 +9,6 @@ module Rea
         @cell = cell
       end
 
-      def position
-        placed? ? "#{cell.to_s},#{direction.to_s}" : ""
-      end
-
       def build_view view_class
         view_class.new cell: cell, direction: direction
       end
@@ -34,10 +30,6 @@ module Rea
       private
 
         attr_reader :cell, :direction, :board
-
-        def placed?
-          direction.valid?
-        end
 
         def next_cell
           direction.move cell

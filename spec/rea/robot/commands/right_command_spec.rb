@@ -13,9 +13,13 @@ module Rea
 
       let(:command) { described_class.new(robot, []) }
 
+      def position robot
+        robot.build_view(Views::RobotView).to_s
+      end
+
       it 'rotates robot to right' do
         robot.place BoardCellFactory.build(0, 0), DirectionFactory.build('south')
-        expect { command.call }.to change { robot.position }.from('0,0,SOUTH').to('0,0,WEST')
+        expect { command.call }.to change { position robot }.from('0,0,SOUTH').to('0,0,WEST')
       end
 
       it 'returns empty string after rotation' do
@@ -24,7 +28,7 @@ module Rea
       end
 
       it 'ignores command when robot is not placed' do
-        expect { command.call }.not_to change { robot.position }
+        expect { command.call }.not_to change { position robot }
       end
 
       it 'returns empty string after ignoring' do

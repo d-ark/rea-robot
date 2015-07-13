@@ -23,6 +23,10 @@ module Rea
         "#{left},#{top}"
       end
 
+      def build_view view
+        view.new left: left, top: top
+      end
+
       protected
 
         attr_reader :left, :top

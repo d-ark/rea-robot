@@ -1,5 +1,4 @@
 require "spec_helper"
-require "rea/robot/views/robot_view"
 
 module Rea
   module Robot

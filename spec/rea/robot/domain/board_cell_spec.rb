@@ -3,6 +3,7 @@ require "spec_helper"
 module Rea
   module Robot
     describe BoardCell do
+      let(:board_cell) { described_class.new(1,2) }
 
       it 'creates cell' do
         described_class.new(1,2)
@@ -18,7 +19,6 @@ module Rea
       end
 
       describe '#on_board?' do
-        let(:board_cell) { described_class.new(1,2) }
 
         it 'calls valid on_board? method of a board' do
           board = double
@@ -31,10 +31,18 @@ module Rea
       end
 
       describe '#to_s' do
-        let(:board_cell) { described_class.new(1,2) }
 
         it 'represents cell' do
           expect(board_cell.to_s).to eq('1,2')
+        end
+      end
+
+      describe '#build_view' do
+        it 'creates view with cell data' do
+          view_class = double
+          view = double
+          expect(view_class).to receive(:new).with(left: 1, top: 2) { view }
+          expect(board_cell.build_view view_class).to be view
         end
       end
 

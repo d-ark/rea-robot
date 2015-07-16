@@ -10,7 +10,9 @@ module Rea
       end
 
       def take_from_cell cell, requester
-        things_on_cell(cell).each {|thing| thing.give requester }
+        things_on_cell(cell).each do |thing|
+          collection.delete(thing).give(requester)
+        end
       end
 
       private

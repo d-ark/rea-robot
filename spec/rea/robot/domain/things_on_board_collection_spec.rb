@@ -6,8 +6,10 @@ module Rea
       let(:board) { Board.new 5, 5 }
 
       let(:thing) { Thing.new 'object' }
+      let(:other_thing) { Thing.new 'other_object' }
       let(:cell) { BoardCellFactory.build 1, 2 }
       let(:thing_on_board) { ThingOnBoard.new thing, cell }
+      let(:other_thing_on_board) { ThingOnBoard.new other_thing, cell }
       let(:collection) { described_class.new board }
 
       let(:bad_cell) { BoardCellFactory.build 7, 2 }
@@ -39,6 +41,17 @@ module Rea
 
         requester = double
         expect(requester).not_to receive(:push)
+        collection.pick_from_cell cell, requester
+      end
+
+      it 'does not allow to push thing twice' do
+        collection.push thing_on_board
+        collection.push thing_on_board
+        collection.push other_thing_on_board
+
+        requester = double
+        expect(requester).to receive(:push).with(thing).once
+        expect(requester).not_to receive(:push).with(other_thing).once
         collection.pick_from_cell cell, requester
       end
     end

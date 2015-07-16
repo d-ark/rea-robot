@@ -8,7 +8,7 @@ module Rea
       end
 
       def push thing, cell
-        collection.push ThingOnBoard.new(thing, cell) if cell.on_board?(board) && things_on_cell(cell).empty?
+        collection.push ThingOnCell.new(thing, cell) if cell.on_board?(board) && things_on_cell(cell).empty?
       end
 
       def pick_from_cell cell, requester

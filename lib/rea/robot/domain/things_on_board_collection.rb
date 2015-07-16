@@ -7,8 +7,8 @@ module Rea
         @board = board
       end
 
-      def push thing
-        collection.push thing if thing.on_board? board
+      def push thing, cell
+        collection.push ThingOnBoard.new(thing, cell) if cell.on_board?(board) && things_on_cell(cell).empty?
       end
 
       def pick_from_cell cell, requester

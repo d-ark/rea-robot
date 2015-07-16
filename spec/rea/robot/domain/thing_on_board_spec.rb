@@ -28,7 +28,7 @@ module Rea
 
       describe '#on_board?' do
         let(:board) { Board.new 5, 5 }
-        let(:board) { Board.new 1, 1 }
+        let(:small_board) { Board.new 1, 1 }
 
         it 'checks if cell where thing is placed is realy on board' do
           expect(thing_on_board.on_board?(board)).to be

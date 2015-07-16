@@ -11,6 +11,10 @@ module Rea
         cell == expected_cell
       end
 
+      def on_board? board
+        cell.on_board? board
+      end
+
       def give requester
         requester.push thing
       end

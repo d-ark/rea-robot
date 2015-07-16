@@ -2,22 +2,23 @@ module Rea
   module Robot
     # represents collection of things on the board
     class ThingsOnBoardCollection
-      def initialize
+      def initialize board
         @collection = []
+        @board = board
       end
 
-      def push thing_on_board
-        collection.push thing_on_board
+      def push thing
+        collection.push thing if thing.on_board? board
       end
 
-      def take_from_cell cell, requester
+      def pick_from_cell cell, requester
         things_on_cell(cell).each do |thing|
           collection.delete(thing).give(requester)
         end
       end
 
       private
-        attr_reader :collection
+        attr_reader :collection, :board
 
         def things_on_cell cell
           collection.select { |thing| thing.on_cell? cell }

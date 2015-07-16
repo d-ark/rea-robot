@@ -10,6 +10,10 @@ module Rea
         cell == expected_cell
       end
 
+      def give requester
+        requester.push thing
+      end
+
       private
 
         attr_reader :thing, :cell

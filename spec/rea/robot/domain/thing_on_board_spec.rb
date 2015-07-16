@@ -25,6 +25,16 @@ module Rea
           thing_on_board.give requester
         end
       end
+
+      describe '#on_board?' do
+        let(:board) { Board.new 5, 5 }
+        let(:board) { Board.new 1, 1 }
+
+        it 'checks if cell where thing is placed is realy on board' do
+          expect(thing_on_board.on_board?(board)).to be
+          expect(thing_on_board.on_board?(small_board)).not_to be
+        end
+      end
     end
   end
 end

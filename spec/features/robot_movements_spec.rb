@@ -32,4 +32,14 @@ describe "Rea Robot" do
 
     expect(process.output).to eq("3,3,NORTH\n")
   end
+
+  pending "places an object to board and robot picks it" do
+    inputs = ["PLACE 0,0,NORTH", "PLACEOBJECT 0,1 BALL", "MOVE", "PICKOBJECT", "REPORT"]
+
+    process = run_interactive(cmd)
+    inputs.each { |input_line| type input_line }
+    close_input
+
+    expect(process.output).to eq("0,1,NORTH BALL\n")
+  end
 end

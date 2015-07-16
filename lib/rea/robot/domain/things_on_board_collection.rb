@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # represents collection of things on the board
     class ThingsOnBoardCollection
       def initialize
         @collection = []

@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # represents just a thing
     class Thing
       def initialize name
         @name = name

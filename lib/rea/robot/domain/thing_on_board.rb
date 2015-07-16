@@ -1,5 +1,6 @@
 module Rea
   module Robot
+    # represents a thing placed on the board
     class ThingOnBoard
       def initialize thing, cell
         @thing = thing

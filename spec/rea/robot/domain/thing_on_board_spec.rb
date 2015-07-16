@@ -14,7 +14,7 @@ module Rea
       describe '#on_cell?' do
         it 'knows if he is on certan cell' do
           expect(thing_on_board.on_cell? cell).to be
-          expect(thing_on_board.on_cell? BoardCellFactory.new 1, 1).not_to be
+          expect(thing_on_board.on_cell? BoardCellFactory.build(1, 1)).not_to be
         end
       end
     end

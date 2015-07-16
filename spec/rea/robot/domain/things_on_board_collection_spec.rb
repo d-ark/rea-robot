@@ -8,11 +8,25 @@ module Rea
       let(:thing_on_board) { ThingOnBoard.new thing, cell }
       let(:collection) { described_class.new }
 
-      it 'pushes new thing_on_board to collection and allowes robot to take it' do
+      it 'pushes new thing_on_board to collection and allowes requester to take it' do
         collection.push thing_on_board
-        robot = double
-        expect(robot).to receive(:push).with thing
-        collection.take_from_cell cell, robot
+        requester = double
+        expect(requester).to receive(:push).with thing
+        collection.take_from_cell cell, requester
+      end
+
+      it 'does not give anything to requester if collection is empty' do
+        requester = double
+        expect(requester).not_to receive(:push)
+        collection.take_from_cell cell, requester
+      end
+
+      it 'removes thing from collection when requester takes it' do
+        collection.push thing_on_board
+        requester = double
+        expect(requester).to receive(:push).with(thing).once
+        collection.take_from_cell cell, requester
+        collection.take_from_cell cell, requester
       end
 
     end

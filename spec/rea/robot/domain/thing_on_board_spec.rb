@@ -20,9 +20,9 @@ module Rea
 
       describe '#give' do
         it 'gives a thing to requester' do
-          robot = double
-          expect(robot).to receive(:push).with(thing)
-          thing_on_board.give robot
+          requester = double
+          expect(requester).to receive(:push).with(thing)
+          thing_on_board.give requester
         end
       end
     end

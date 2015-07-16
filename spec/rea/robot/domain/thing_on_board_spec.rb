@@ -17,6 +17,14 @@ module Rea
           expect(thing_on_board.on_cell? BoardCellFactory.build(1, 1)).not_to be
         end
       end
+
+      describe '#give' do
+        it 'gives a thing to requester' do
+          robot = double
+          expect(robot).to receive(:push).with(thing)
+          thing_on_board.give robot
+        end
+      end
     end
   end
 end
